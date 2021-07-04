@@ -1,0 +1,13 @@
+.header{
+    background-color: #35e235;
+    width: 100%;
+   
+}
+
+.logo{
+    color: black;
+    font-size: 35px;
+    margin:3px 30% ;
+    font-weight: 900;
+    text-transform: uppercase;
+}
