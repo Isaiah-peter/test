@@ -1,15 +1,15 @@
 import Header from './component/header';
 import './App.css';
 import { useState } from 'react';
-import Input from './component/input'
-import Multiple from './component/multiple'
-import Single from './component/single'
+import QuestionSelector from './component/questionSelector'
+
 
 function App() {
   const questions = [
     {
       questionText: 'What is your email?',
-      type: 'INPUT'
+      type: 'INPUT',
+      answerOption: 'email'
     },
     {
       questionText: 'What is the capital of France?',
@@ -20,6 +20,11 @@ function App() {
         { answerText: 'Paris' },
         { answerText: 'Dublin' },
       ],
+    },
+    {
+      questionText: 'What is your name?',
+      type: 'INPUT',
+      answerOption: 'text'
     },
     {
       questionText: 'What is the capital of France?',
@@ -35,25 +40,15 @@ function App() {
 
   
 
-  const component = [
-    {
-      page: (<Input question={questions} />)
-    },
-    {
-      page: (<Multiple question={questions} />)
-    },
-    {
-      page: (<Single question={questions} />)
-    },
-  ]
+ 
 
   const [currentQuestion, setCurrentQuestion] = useState(0)
 
 
-
+  const nextQuestion = currentQuestion + 1
   const nextQuest = () => {
-    const nextQuestion = currentQuestion + 1
-    if (nextQuestion < component.length) {
+    
+    if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion)
     }
   }
@@ -66,9 +61,11 @@ function App() {
       <div className='question-section'>
         <Header />
 
-        <div className='question-text'>{component[currentQuestion].page}</div>
+        <div className='question-text'><QuestionSelector question={questions[currentQuestion]} /></div>
 
-        <button className='nextButton' onClick={nextQuest}>continue</button>
+        <button className={ nextQuestion === questions.length ? "endButton":'nextButton'} onClick={nextQuest} >
+          {nextQuestion === questions.length ? "nice job ✓":'continue'}
+          </button>
       </div>
     </div>
   );

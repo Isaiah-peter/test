@@ -45,3 +45,37 @@
 .question-text{
   margin: 40px 0;
 }
+
+.answer-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.answer-button{
+  width: 14rem;
+  padding: 10px 4px;
+  margin: 3px;
+}
+
+.endButton{
+  outline: none;
+  border: none;
+  font-size: 40px;
+  color: #35e235;
+  text-transform: capitalize;
+}
+.green{
+  background-color: #35e235;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.answer-button:focus{
+  background-color: #35e235;
+  color: #fff;
+  outline: none;
+  border: none;
+}
