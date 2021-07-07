@@ -1,26 +1,23 @@
 
 const Mutilpe = ({ question }) => {
-    const renderQuestion = question.map((quest) => {
-        if (quest.type === "MULTIPLE_ANSWER") {
-            return (
-                <div key={quest.type}>
-                    <div >
-                        <div className='question-text'>{quest.questionText}</div>
-                    </div>
-                    <div className='answer-section'>
-                        {quest.answerOptions.map(({ answerText}) => {
-                            return (
-                                <button key={answerText[0]}>{answerText}</button>
-                            )
-                        })}
-                    </div>
-                </div>
-            )
-        }
-    })
-    return (
-        <div>{renderQuestion}</div>
-    )
+
+  const addAnswer = () =>{
+    let mul = document.getElementById('multiple')
+    mul.classList.add('green')
+  }
+
+  return (
+    <div>
+      <div className='question-text'>{question.questionText}</div>
+      <div className='answer-section'>
+        {question.answerOptions.map(({ answerText }) => {
+          return (
+            <button id='multiple' onClick={addAnswer} className='answer-button' key={answerText}>{answerText}</button>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 export default Mutilpe

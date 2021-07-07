@@ -1,25 +1,20 @@
-const Single = ({question}) => {
-    const renderQuestion = question.map((quest) => {
-        if (quest.type === "SINGLE_ANSWER") {
-            return (
-                <div key={quest.type}>
-                    <div >
-                        <div className='question-text'>{quest.questionText}</div>
-                    </div>
-                    <div className='answer-section'>
-                        {quest.answerOptions.map(({ answerText}) => {
-                            return (
-                                <button key={answerText[0]}>{answerText}</button>
-                            )
-                        })}
-                    </div>
-                </div>
-            )
-        }
-    })
-    return (
-        <div>{renderQuestion}</div>
-    )
+const Single = ({ question }) => {
+  
+  return (
+    <div>
+      <div >
+        <div className='question-text'>{question.questionText}</div>
+      </div>
+      <div className='answer-section'>
+        {question.answerOptions.map(({ answerText }) => {
+          return (
+            <button className='answer-button' key={answerText[0]}>{answerText}</button>
+          )
+        })}
+      </div>
+
+    </div>
+  )
 }
 
 export default Single
